@@ -172,7 +172,10 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 
 const totalSumCSV = (str) => {
   let total = 0;
-  // Solution code here...
+  let arr = str.split(',');
+  for(let i = 0; i<arr.length; i++){
+    total += parseInt(arr[i]);
+  }
   return total;
 };
 
@@ -186,7 +189,15 @@ For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
 const removeVowels = (str) => {
-  // Solution code here...
+  let arr = str.split('');
+  let validate = /[aeiou]/;
+  arr.forEach((element,index) =>{ 
+  if(validate.test(element)){
+    console.log(`${element} matched`);
+    arr.splice(index,1);
+    }
+  });
+  return arr.join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
