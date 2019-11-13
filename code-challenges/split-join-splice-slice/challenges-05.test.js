@@ -32,7 +32,7 @@ Write a function name wordsToCharList that, given a string as input, returns a n
 For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
-const wordsToCharList = (str) => {str.split("");};
+const wordsToCharList = (str) => str.split("");
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -78,9 +78,10 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+    
   return result;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -92,7 +93,13 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.ingredients.forEach(element => {
+    let containerArray = element.split(' ');
+    containerArray.shift();
+    containerArray.shift();
+    containerArray = containerArray.join(' ');
+    result.push(containerArray);
+  });
   return result;
 };
 
@@ -109,10 +116,10 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 const stepActions = (recipe) => {
   let result = [];
   for(let i = 0; i<recipe.steps.length; i++){
-  let split = recipe.steps[i].indexOf(' ');
-  let arr = recipe.steps[i].split('');
-  let verb = arr.splice(0,split).join('');
-  result.push(verb);
+    let split = recipe.steps[i].indexOf(' ');
+    let arr = recipe.steps[i].split('');
+    let verb = arr.splice(0,split).join('');
+    result.push(verb);
   }
   return result;
 };
@@ -160,7 +167,7 @@ const removeLastCharacters = (str, numberOfCharacters) => {
   } else if(numberOfCharacters <= 0){
     return str;
   } else {
-   return arr.splice(0,arr.length-numberOfCharacters).join('');
+    return arr.splice(0,arr.length-numberOfCharacters).join('');
   }
 };
 
@@ -192,9 +199,9 @@ const removeVowels = (str) => {
   let arr = str.split('');
   let validate = /[aeiou]/;
   arr.forEach((element,index) =>{ 
-  if(validate.test(element)){
-    console.log(`${element} matched`);
-    arr.splice(index,1);
+    if(validate.test(element)){
+      console.log(`${element} matched`);
+      arr.splice(index,1);
     }
   });
   return arr.join('');
