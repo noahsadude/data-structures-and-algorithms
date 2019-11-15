@@ -10,6 +10,13 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (arr) => arr.reduce((store,element,index) => store+index);
 
+//let initialValue = 0;
+//sum = [1,2,3,4].reduce(
+//  (accumulator, currentValue, currentIndex) => accumulator + currentIndex
+//  ,initialValue
+//);
+
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -67,7 +74,7 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
