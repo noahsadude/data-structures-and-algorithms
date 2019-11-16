@@ -7,15 +7,10 @@ Write a function named countNumberOfElements that, given an array as input, uses
 
 Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
-
-const countNumberOfElements = (arr) => arr.reduce((store,element,index) => store+index);
-
-//let initialValue = 0;
-//sum = [1,2,3,4].reduce(
-//  (accumulator, currentValue, currentIndex) => accumulator + currentIndex
-//  ,initialValue
-//);
-
+let initialValue = 0;
+const countNumberOfElements = (arr) => {
+  return arr.reduce(total => total + 1, initialValue);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -73,9 +68,12 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-const returnNames = (arr) => {
-  
-};
+initialValue = [];
+const returnNames = (arr) => arr.reduce(
+  (total,currentValue) => {
+    total.push(currentValue.name);
+    return total;
+  },initialValue);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -86,7 +84,7 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  // Solution code here...
+  return str.split('').reduce((total,currentValue)=> currentValue + total, '');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -139,7 +137,9 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  return arr.reduce((total,currentValue)=>{
+    return currentValue ? total + currentValue.children.length : total;
+  },0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -150,9 +150,7 @@ Write a function that, given an array of numbers as input, uses reduce to calcul
 Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
-const calculateAverage = (arr) => {
-  // Solution code here...
-};
+const calculateAverage = (arr) => arr.reduce((total,currentValue) => total+=currentValue, 0) / arr.length;
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -171,9 +169,7 @@ const isPrime = (value) => {
   return value > 1;
 };
 
-const countPrimeNumbers = (arr) => {
-  // Solution code here...
-};
+const countPrimeNumbers = (arr) => arr.reduce((total,currentValue) => isPrime(currentValue) ? total+1 : total, 0);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
